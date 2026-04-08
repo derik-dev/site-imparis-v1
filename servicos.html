@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imparis Solutions | Agência de Estratégia, Tecnologia e Posicionamento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], },
+                    colors: {
+                        dark: '#060a12', brand: { 50: '#edf4ff', 100: '#d9e8fb', 200: '#b9d2f4', 300: '#7ea9df', 400: '#2f6eb8', 500: '#0f4c92', 600: '#0b3e78', 700: '#082f5c', },
+                        accent: { 400: '#ff3b35', 500: '#f00400', 600: '#c70000', }
+                    },
+                    animation: { 'marquee': 'marquee 25s linear infinite', 'float': 'float 6s ease-in-out infinite', },
+                    keyframes: {
+                        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' }, },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' }, }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-black dark:bg-black text-zinc-900 dark:text-zinc-50 antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden relative transition-colors duration-300">
+
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5">
+                <img src="images/logo-imparis-v4.png" alt="Imparis Solutions Logo" class="h-10 w-auto">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-zinc-500 dark:text-zinc-400">
+                <a href="index.html#sobre" class="hover:text-brand-500 dark:hover:text-white transition-colors">Nossa Agência</a>
+                <a href="servicos.html" class="hover:text-brand-500 dark:hover:text-white transition-colors">Serviços</a>
+                <a href="#portfolio" class="hover:text-brand-500 dark:hover:text-white transition-colors">Portfolio</a>
+                <a href="#eventos" class="hover:text-brand-500 dark:hover:text-white transition-colors">Eventos</a>
+                <a href="#blog" class="hover:text-brand-500 dark:hover:text-white transition-colors">Blog</a>
+                <a href="#contato" class="hover:text-brand-500 dark:hover:text-white transition-colors">Contato</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="login.html"
+                    class="text-sm font-semibold text-zinc-500 dark:text-zinc-400 hover:text-brand-500 dark:hover:text-white transition-colors hidden sm:block">Entrar</a>
+                <a href="https://buy.stripe.com/00wbJ1c5q08V31F1cdbo404"
+                    class="bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold py-2 px-5 rounded-full transition-colors shadow-md shadow-brand-500/40">
+                    Começar agora
+                </a>
+            </div>
+        </div>
+    </nav>
+<main class="pt-40 lg:pt-48 pb-24 relative bg-black min-h-screen">
+    <!-- Luzes de Fundo -->
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-500/10 blur-[200px] rounded-full pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center mb-32">
+        <span class="text-sm font-black uppercase tracking-[0.3em] text-brand-500 mb-4 block animate-fade-in">Mosaico Imparis</span>
+        <h1 class="text-6xl md:text-8xl font-black text-white tracking-tighter mb-8 max-w-4xl mx-auto font-jakarta">
+            Nossas <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500 italic">Soluções.</span>
+        </h1>
+        <p class="text-zinc-400 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
+            Desde a fundação à expansão global. Mergulhamos no seu modelo de negócio para desenhar e executar estratégias digitais, presenciais e tecnológicas focadas apenas numa métrica: Resultados agressivos.
+        </p>
+    </div>
+
+    <!-- Portfolio Showcase Grid -->
+    <!-- Portfolio Showcase Grid -->
+    <div class="max-w-7xl mx-auto px-6 space-y-40 relative z-10">
+        
+        <!-- SITES -->
+        <div class="space-y-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Sites</span>
+                <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
+                    Não criamos sites. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-700">Construímos máquinas de conversão.</span>
+                </h3>
+                <p class="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed mb-8">
+                    Um site não é apenas presença digital. É o seu vendedor 24 horas por dia. Desenvolvemos plataformas estratégicas orientadas a resultado.
+                </p>
+                <a href="#contato" class="inline-flex items-center gap-3 text-brand-500 font-bold text-sm uppercase tracking-widest border-b border-brand-500/30 pb-1 hover:text-brand-400 transition-colors">
+                    Quero um site estratégico <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-strategy text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Sem templates</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Tudo estruturado do zero e à mão para o seu modelo exclusivo de mercado.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Exclusividade</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-target text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Foco em conversão</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Engenharia guiada para capturar o máximo de leads e multiplicar as suas vendas.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Alta Performance</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-users-three text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Integração com Marketing</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">O seu site totalmente acoplado as suas ferramentas de meta ads, google ads e CRM.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Ecossistema</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- APP & CRM -->
+        <div class="space-y-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Apps & CRM</span>
+                <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
+                    Coloque o seu negócio <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-700">na palma da mão.</span>
+                </h3>
+                <p class="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed mb-8">
+                    Criamos aplicações modernas que aumentam retenção e conexão com clientes.
+                </p>
+                <a href="#contato" class="inline-flex items-center gap-3 text-brand-500 font-bold text-sm uppercase tracking-widest border-b border-brand-500/30 pb-1 hover:text-brand-400 transition-colors">
+                    Quero desenvolver uma app <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-device-mobile-camera text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">App Nativo (iOS / Android)</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Velocidade e tecnologia móvel impecável para prender a atenção do seu cliente final.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">B2C Mobile</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-database text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Sistemas CRM</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Softwares de controle de processos internos para orquestrar as vendas e atendimentos da sua equipe.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Gestão B2B</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-chart-bar text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Dashboards Administrativos</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Métricas de alto nível centralizadas em um único sistema fechado para você gerenciar o negócio.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">BI / Data</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REDES SOCIAIS & DESIGN -->
+        <div class="space-y-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Redes Sociais & Brand</span>
+                <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
+                    Não é sobre publicar. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-700">É sobre posicionar.</span>
+                </h3>
+                <p class="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed mb-8">
+                    Criamos estratégias que geram autoridade e convertem seguidores em clientes.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-instagram-logo text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Gestão Estratégica</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Foco na construção de um conteúdo que educa a audiência e direciona diretamente para venda.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Conteúdo</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-swatches text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Identidade Visual</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Branding e pacotes gráficos super premium que tornam a sua marca visualmente superior aos concorrentes.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Branding</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-video-camera text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Audiovisual</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Captação de vídeos fotográficos de nível elite para gerar desejo e reter os olhos do seu lead.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Vídeo Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRÁFEGO PAGO -->
+        <div class="space-y-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Tráfego Pago</span>
+                <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
+                    Apareça para <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-700">as pessoas certas.</span>
+                </h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-faders text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Segmentação avançada</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Rastreio com inteligência artificial para localizar apenas o cliente com maior probabilidade de compra.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Targeting</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-arrows-clockwise text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Otimização Contínua</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Ajuste microscópico diário nas campanhas (anúncios, públicos e orçamentos) para frear custos improdutivos.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Escala Diária</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-trend-up text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-white text-xl font-bold mb-2 uppercase tracking-tight">Foco em ROI</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">Nosso único propósito não é trazer curtidas ou cliques. Nós compramos tráfego unicamente focados em Retorno Financeiro.</p>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-brand-500 border border-brand-500/30 bg-brand-500/10 px-3 py-1.5 rounded-full">Growth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LANÇAMENTOS -->
+        <div class="space-y-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Lançamentos</span>
+                <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
+                    Transforme conhecimento <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-700">em negócio.</span>
+                </h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-40 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-strategy text-3xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-white text-lg font-bold uppercase tracking-tight">Estratégia</h4>
+                    </div>
+                </div>
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-40 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-layout text-3xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-white text-lg font-bold uppercase tracking-tight">Estrutura</h4>
+                    </div>
+                </div>
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-40 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-megaphone text-3xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-white text-lg font-bold uppercase tracking-tight">Comunicação</h4>
+                    </div>
+                </div>
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-40 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-rocket-launch text-3xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-white text-lg font-bold uppercase tracking-tight">Execução</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENTOS -->
+        <div class="space-y-16">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Eventos</span>
+                <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
+                    Eventos que <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-700">geram negócios.</span>
+                </h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-flag-banner text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h4 class="text-white text-xl font-bold uppercase tracking-tight">Estratégia</h4>
+                    </div>
+                </div>
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-confetti text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h4 class="text-white text-xl font-bold uppercase tracking-tight">Experiência</h4>
+                    </div>
+                </div>
+                <div class="group relative bg-zinc-900/50 border border-white/5 rounded-[2rem] overflow-hidden hover:border-brand-500/30 transition-all duration-500 shadow-2xl">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center border-b border-white/5">
+                        <i class="ph-bold ph-handshake text-4xl text-zinc-800 group-hover:text-brand-500 transition-colors duration-500"></i>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h4 class="text-white text-xl font-bold uppercase tracking-tight">Networking</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+<section id="contato" class="py-32 relative overflow-hidden bg-black text-center flex items-center justify-center">
+        <!-- Fundo Cinemático e Iluminação -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-brand-500/10 blur-[200px] rounded-full pointer-events-none z-0"></div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-20 w-full">
+            <div class="bg-zinc-900/40 backdrop-blur-3xl rounded-[3rem] p-10 md:p-20 border border-white/10 relative overflow-hidden shadow-2xl group hover:border-brand-500/30 transition-all duration-700">
+                
+                <!-- Glares Internos do Card -->
+                <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-500/20 blur-[150px] rounded-full pointer-events-none z-0"></div>
+                <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-brand-400/10 blur-[150px] rounded-full pointer-events-none z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                
+                <div class="relative z-20 flex flex-col items-center">
+                    <!-- Icone de Destaque -->
+                    <div class="w-20 h-20 rounded-full bg-black border border-white/5 flex items-center justify-center text-brand-500 mb-8 shadow-[0_0_40px_rgba(15,76,146,0.4)] group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <i class="ph-bold ph-power text-4xl"></i>
+                    </div>
+                    
+                    <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">O Próximo Passo</span>
+                    
+                    <!-- Headline Copy do Roteiro -->
+                    <h2 class="text-4xl md:text-6xl md:leading-[1.1] font-black text-white mb-8 tracking-tighter font-jakarta max-w-3xl">
+                        O próximo nível do seu negócio <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">começa com uma decisão.</span>
+                    </h2>
+                    
+                    <p class="text-zinc-400 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed">
+                        Esqueça a execução de tarefas isoladas. Sente-se conosco e descubra como uma engenharia estratégica de elite vai escalar a sua operação.
+                    </p>
+
+                    <!-- Botões -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
+                        <a href="https://wa.me/5524993958960?text=Olá! Quero agendar uma conversa sobre o meu negócio."
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-500 hover:bg-brand-400 text-white font-black text-lg py-5 px-14 rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(15,76,146,0.4)] hover:shadow-[0_0_50px_rgba(15,76,146,0.6)] hover:-translate-y-1 active:scale-95">
+                            Agendar conversa <i class="ph-bold ph-arrow-right text-xl"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Proof / Urgency -->
+                    <div class="flex items-center gap-3 mt-10">
+                        <div class="flex -space-x-3">
+                            <div class="w-8 h-8 rounded-full border-2 border-zinc-900 bg-zinc-800 flex items-center justify-center text-[10px]"><i class="ph-fill ph-user text-zinc-500"></i></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-zinc-900 bg-zinc-800 flex items-center justify-center text-[10px]"><i class="ph-fill ph-user text-zinc-500"></i></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-zinc-900 bg-zinc-800 flex items-center justify-center text-[10px]"><i class="ph-fill ph-user text-zinc-500"></i></div>
+                        </div>
+                        <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">+150 Empresários impulsionados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-24 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 font-jakarta">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-1 lg:col-span-1">
+                    <img src="images/logo-imparis-v4.png" alt="Imparis Solutions" class="h-8 w-auto mb-10">
+                    <p class="text-zinc-500 text-sm leading-relaxed max-w-xs">
+                        Agência de negócios focada em otimizar processos e escalar empresas através de inteligência
+                        estratégica e tecnologia de elite.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-10">Explorar</h5>
+                    <ul class="space-y-4 text-sm font-medium text-zinc-500">
+                        <li><a href="#sobre" class="hover:text-brand-400 transition-colors">Agência</a></li>
+                        <li><a href="#servicos" class="hover:text-brand-400 transition-colors">Serviços</a></li>
+                        <li><a href="#diferenciais" class="hover:text-brand-400 transition-colors">Diferenciais</a></li>
+                        <li><a href="#experiencia" class="hover:text-brand-400 transition-colors">Ecossistema</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-10">Hubs Globais</h5>
+                    <ul class="space-y-6 text-sm font-medium text-zinc-500 leading-relaxed">
+                        <li class="flex flex-col gap-1">
+                            <span class="text-zinc-400 font-bold text-[10px] uppercase tracking-widest">Portugal</span>
+                            Lisboa
+                        </li>
+                        <li class="flex flex-col gap-1">
+                            <span class="text-zinc-400 font-bold text-[10px] uppercase tracking-widest">Suíça</span>
+                            Lugano
+                        </li>
+                        <li class="flex flex-col gap-1">
+                            <span class="text-zinc-400 font-bold text-[10px] uppercase tracking-widest">Brasil</span>
+                            Rio de Janeiro
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-10">Connect</h5>
+                    <div class="flex items-center gap-4">
+                        <a href="https://instagram.com/imparis.solutions"
+                            class="w-12 h-12 rounded-2xl bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-brand-500 hover:text-white transition-all shadow-xl">
+                            <i class="ph-bold ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-2xl bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-brand-500 hover:text-white transition-all shadow-xl">
+                            <i class="ph-bold ph-linkedin-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="pt-12 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div class="flex flex-col gap-1">
+                    <span class="text-zinc-600 text-[10px] font-bold uppercase tracking-widest">© 2026 IMPARIS
+                        SOLUTIONS, LDA</span>
+                    <span class="text-zinc-700 text-[9px] font-medium uppercase tracking-[0.2em]">NIF 519147995 • Rua
+                        São Tiago 376, 2415-543 | Marrazes, Leiria</span>
+                    <span
+                        class="text-zinc-700 text-[9px] font-medium uppercase tracking-[0.2em] mt-1">contacto@imparis.com</span>
+                </div>
+                <div class="flex items-center gap-8 justify-center md:justify-end">
+                    <a href="#"
+                        class="text-zinc-600 hover:text-zinc-400 text-[10px] font-bold uppercase tracking-widest transition-colors">Termos</a>
+                    <a href="#"
+                        class="text-zinc-600 hover:text-zinc-400 text-[10px] font-bold uppercase tracking-widest transition-colors">Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+

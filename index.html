@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imparis Solutions | Agência de Estratégia, Tecnologia e Posicionamento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], },
+                    colors: {
+                        dark: '#060a12', brand: { 50: '#edf4ff', 100: '#d9e8fb', 200: '#b9d2f4', 300: '#7ea9df', 400: '#2f6eb8', 500: '#0f4c92', 600: '#0b3e78', 700: '#082f5c', },
+                        accent: { 400: '#ff3b35', 500: '#f00400', 600: '#c70000', }
+                    },
+                    animation: { 'marquee': 'marquee 25s linear infinite', 'float': 'float 6s ease-in-out infinite', },
+                    keyframes: {
+                        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' }, },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' }, }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-black dark:bg-black text-zinc-900 dark:text-zinc-50 antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden relative transition-colors duration-300">
+
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5">
+                <img src="images/logo-imparis-v4.png" alt="Imparis Solutions Logo" class="h-10 w-auto">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-zinc-500 dark:text-zinc-400">
+                <a href="index.html#sobre" class="hover:text-brand-500 dark:hover:text-white transition-colors">Nossa Agência</a>
+                <a href="servicos.html" class="hover:text-brand-500 dark:hover:text-white transition-colors">Serviços</a>
+                <a href="#portfolio" class="hover:text-brand-500 dark:hover:text-white transition-colors">Portfolio</a>
+                <a href="#eventos" class="hover:text-brand-500 dark:hover:text-white transition-colors">Eventos</a>
+                <a href="#blog" class="hover:text-brand-500 dark:hover:text-white transition-colors">Blog</a>
+                <a href="#contato" class="hover:text-brand-500 dark:hover:text-white transition-colors">Contato</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="login.html"
+                    class="text-sm font-semibold text-zinc-500 dark:text-zinc-400 hover:text-brand-500 dark:hover:text-white transition-colors hidden sm:block">Entrar</a>
+                <a href="https://buy.stripe.com/00wbJ1c5q08V31F1cdbo404"
+                    class="bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold py-2 px-5 rounded-full transition-colors shadow-md shadow-brand-500/40">
+                    Começar agora
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="relative overflow-hidden bg-black transition-colors duration-500">
+        <section id="home" class="relative min-h-[90vh] flex items-center pt-32 lg:pt-20 pb-24 overflow-hidden">
+
+            <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <div class="absolute inset-0 opacity-[0.08]"
+                    style="background-image: linear-gradient(rgba(15, 76, 146, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 76, 146, 0.2) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(1000px) rotateX(60deg) translateY(-100px) scale(3); filter: blur(0.5px);">
+                </div>
+
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-brand-500/10 blur-[180px] rounded-full animate-pulse">
+                </div>
+
+                <svg class="absolute inset-0 w-full h-full opacity-40">
+                    <circle cx="15%" cy="25%" r="0.8" fill="#0f4c92" class="animate-pulse shadow-glow" />
+                    <circle cx="85%" cy="15%" r="0.8" fill="#0f4c92" class="animate-pulse shadow-glow"
+                        style="animation-delay: 1s" />
+                    <circle cx="45%" cy="65%" r="1.2" fill="#0f4c92" class="animate-pulse shadow-glow"
+                        style="animation-delay: 2s" />
+                    <circle cx="75%" cy="85%" r="0.8" fill="#0f4c92" class="animate-pulse shadow-glow"
+                        style="animation-delay: 1.5s" />
+                    <path d="M 15 25 Q 45 45 45 65 Q 60 75 75 85" stroke="#0f4c92" stroke-width="0.1" fill="none"
+                        stroke-dasharray="2 4" />
+                </svg>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+                <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-8 min-h-[70vh]">
+
+                    <div class="w-full lg:w-1/2 text-left pr-4">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span
+                                class="px-3 py-1 bg-brand-500 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-md">Imparis
+                                Solutions Elite</span>
+                            <div class="h-px w-8 bg-zinc-800"></div>
+                        </div>
+
+                        <div class="max-w-xl">
+                            <h1
+                                class="text-4xl md:text-6xl font-black text-white mb-10 tracking-tighter leading-[1.02] animate-fade-in-up">
+                                Soluções de elite <br>
+                                para <span
+                                    class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-brand-400 to-accent-500 drop-shadow-[0_0_25px_rgba(15,76,146,0.3)]">escalar
+                                    negócios</span> <br>
+                                com precisão.
+                            </h1>
+
+                            <p class="text-zinc-500 text-lg md:text-xl leading-relaxed mb-14 font-medium opacity-95">
+                                Sediada em <span class="text-white">Portugal e conectada ao mundo</span>, a Imparis
+                                organiza e acelera empresas através de ecossistemas digitais e eventos estratégicos de
+                                alto nível.
+                            </p>
+
+                            <div class="flex flex-col sm:flex-row items-center gap-6">
+                                <a href="https://wa.me/5524993958960"
+                                    class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white font-black text-base py-5 px-14 rounded-2xl transition-all shadow-[0_20px_40px_-10px_rgba(15,76,146,0.4)] hover:shadow-[0_25px_50px_-10px_rgba(15,76,146,0.5)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
+                                    Falar com Especialista
+                                    <i
+                                        class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full lg:w-1/2 relative h-[600px] lg:h-[750px] mt-12 lg:mt-0 flex flex-col items-center justify-center">
+
+                        <div
+                            class="relative w-full h-[500px] perspective-[2000px] flex items-center justify-center overflow-visible">
+                            <div
+                                class="absolute bottom-[15%] w-[80%] h-20 border-[1.5px] border-brand-500/20 rounded-[100%] z-0 pointer-events-none after:content-[''] after:absolute after:inset-0 after:rounded-[100%] after:shadow-[0_0_30px_rgba(15,76,146,0.15)]">
+                                <div id="orbit-dot"
+                                    class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-brand-500 rounded-full shadow-[0_0_15px_rgba(15,76,146,1)]">
+                                </div>
+                            </div>
+
+                            <div id="carousel-scene"
+                                class="relative w-full h-full preserve-3d flex items-center justify-center">
+
+                                <div
+                                    class="carousel-item box-scaling absolute w-52 h-80 bg-zinc-900 rounded-[2rem] border border-white/5 shadow-2xl overflow-hidden group cursor-pointer">
+                                    <div class="absolute inset-0 bg-brand-500/10 z-10 opacity-40"></div>
+                                    <div class="absolute inset-0 flex flex-col justify-between p-8 z-20">
+                                        <i class="ph-bold ph-globe text-3xl text-brand-500"></i>
+                                        <div>
+                                            <h4
+                                                class="text-white font-black text-xl leading-tight mb-2 uppercase tracking-tighter">
+                                                Global <br> Scaling</h4>
+                                            <p class="text-zinc-500 text-[9px] font-bold uppercase tracking-widest">
+                                                Escala internacional.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="carousel-item box-tech absolute w-52 h-80 bg-zinc-950 rounded-[2rem] border border-white/5 shadow-2xl overflow-hidden group cursor-pointer">
+                                    <div
+                                        class="absolute inset-x-0 top-0 h-px bg-brand-500/50 shadow-[0_0_15px_rgba(15,76,146,0.8)]">
+                                    </div>
+                                    <div class="absolute inset-0 flex flex-col justify-between p-8 z-20">
+                                        <i class="ph-bold ph-lightning text-3xl text-brand-400"></i>
+                                        <div>
+                                            <h4
+                                                class="text-white font-black text-xl leading-tight mb-2 uppercase tracking-tighter">
+                                                Tech <br> Catalyst</h4>
+                                            <p class="text-zinc-500 text-[9px] font-bold uppercase tracking-widest">
+                                                Aceleração digital.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="carousel-item box-strategy absolute w-52 h-80 bg-black rounded-[2rem] border border-white/5 shadow-2xl overflow-hidden group cursor-pointer">
+                                    <div class="inner-glow"></div>
+                                    <div class="absolute inset-0 flex flex-col justify-between p-8 z-20">
+                                        <i class="ph-bold ph-strategy text-3xl text-white"></i>
+                                        <div>
+                                            <h4
+                                                class="text-white font-black text-xl leading-tight mb-2 uppercase tracking-tighter">
+                                                Boutique <br> Strategy</h4>
+                                            <p class="text-zinc-500 text-[9px] font-bold uppercase tracking-widest">
+                                                Precisão exclusiva.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="carousel-item box-experience absolute w-52 h-80 bg-zinc-900 rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden group cursor-pointer">
+                                    <div class="absolute inset-0 bg-brand-600/10 opacity-30"></div>
+                                    <div class="absolute inset-0 flex flex-col justify-between p-8 z-20">
+                                        <i class="ph-bold ph-users-three text-3xl text-brand-500"></i>
+                                        <div>
+                                            <h4
+                                                class="text-white font-black text-xl leading-tight mb-2 uppercase tracking-tighter">
+                                                Experience <br> Hub</h4>
+                                            <p class="text-zinc-500 text-[9px] font-bold uppercase tracking-widest">
+                                                Ecosistema Imparis.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="carousel-item absolute w-52 h-80 bg-zinc-900 rounded-[2rem] border border-white/20 shadow-2xl overflow-hidden group cursor-pointer">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                                    <div class="absolute inset-0 flex flex-col justify-between p-8 z-20">
+                                        <i class="ph-bold ph-pencil-circle text-3xl text-brand-400"></i>
+                                        <div>
+                                            <h4
+                                                class="text-white font-black text-xl leading-tight mb-2 uppercase tracking-tighter">
+                                                Brand <br> Absolute</h4>
+                                            <p class="text-zinc-500 text-[9px] font-bold uppercase tracking-widest">
+                                                Design de elite.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500/15 blur-[150px] rounded-full pointer-events-none z-0">
+                            </div>
+                            <div
+                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-brand-400/10 blur-[100px] rounded-full pointer-events-none z-0">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 mt-2 z-50 relative">
+                            <button id="prev-btn"
+                                class="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-brand-500 border border-zinc-800 hover:border-brand-500 hover:bg-brand-500/10 hover:scale-110 transition-all active:scale-95 group">
+                                <i
+                                    class="ph-bold ph-caret-left text-xl group-hover:-translate-x-1 transition-transform"></i>
+                            </button>
+                            <button id="next-btn"
+                                class="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-brand-500 border border-zinc-800 hover:border-brand-500 hover:bg-brand-500/10 hover:scale-110 transition-all active:scale-95 group">
+                                <i
+                                    class="ph-bold ph-caret-right text-xl group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div
+            class="border-y border-zinc-200 dark:border-zinc-800/20 bg-white/50 dark:bg-zinc-900/40 backdrop-blur-md py-6 overflow-hidden flex relative transition-colors duration-300 z-10">
+            <div
+                class="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-black via-black/90 to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-black via-black/90 to-transparent z-10 pointer-events-none">
+            </div>
+
+            <div class="flex animate-marquee whitespace-nowrap items-center gap-4">
+                <div class="flex items-center gap-4 opacity-100">
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">HUB PT</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">HUB CH</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">HUB BR</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">ESTRATÉGIA</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">TECNOLOGIA</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                </div>
+                <div class="flex items-center gap-4 opacity-100">
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">HUB PT</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">HUB CH</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">HUB BR</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">ESTRATÉGIA</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                    <span class="text-xl font-black px-12 text-zinc-300 tracking-[0.5em] italic uppercase">TECNOLOGIA</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500/80"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="sobre" class="py-20 bg-black relative overflow-hidden transition-colors">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        <div
+                            class="col-span-6 h-[400px] md:h-[500px] bg-zinc-900/80 border border-zinc-800 rounded-[2.5rem] relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-transparent"></div>
+                            <div class="absolute bottom-8 left-8">
+                                <div class="w-12 h-1.5 bg-brand-500 rounded-full mb-2"></div>
+                                <div class="w-20 h-1.5 bg-zinc-800 rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-6 flex flex-col gap-4">
+                            <div
+                                class="h-[190px] md:h-[240px] bg-zinc-900/80 border border-zinc-800 rounded-[2.5rem] relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-bl from-brand-500/5 to-transparent"></div>
+                                <i class="ph-bold ph-strategy absolute top-8 right-8 text-4xl text-brand-500/20"></i>
+                            </div>
+                            <div
+                                class="h-[190px] md:h-[240px] bg-zinc-900/80 border border-zinc-800 rounded-[2.5rem] relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/5 to-transparent"></div>
+                                <i
+                                    class="ph-bold ph-chart-line-up absolute bottom-8 right-8 text-4xl text-brand-500/20"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wrapper absoluto para fixar a posição e evitar conflito com animate-float -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                        <div
+                            class="w-32 h-32 md:w-36 md:h-36 rounded-full bg-brand-500 flex items-center justify-center p-6 md:p-8 shadow-[0_0_50px_-10px_rgba(15,76,146,0.8)] animate-float border-8 border-black">
+                            <img src="images/logo-imparis-v4.png" alt="Imparis Logo" class="w-full object-contain brightness-0 invert">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 text-left">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="text-sm font-black uppercase tracking-[0.3em] text-brand-500">Quem
+                            Somos</span>
+                        <div class="h-px w-12 bg-brand-500"></div>
+                    </div>
+
+                    <h2 class="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight leading-tight">
+                        Não somos uma <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">agência comum.</span>
+                    </h2>
+
+                    <div class="space-y-6 text-zinc-400 text-lg leading-relaxed mb-10 font-medium">
+                        <p>A Imparis nasce com um propósito claro: ajudar empresários a <span
+                                class="text-white">organizarem, estruturarem e escalarem</span> os seus negócios com
+                            inteligência.</p>
+                        <p>Mais do que executar tarefas, mergulhamos no negócio, entendemos a essência da empresa e
+                            construímos soluções estratégicas que geram crescimento real.</p>
+                    </div>
+
+                    <div
+                        class="bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 p-6 rounded-3xl flex items-center gap-6 mb-12 group hover:border-brand-500/30 transition-all">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-brand-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-brand-500/20">
+                            <i class="ph-fill ph-bullseye text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg mb-1">Resultados Concretos</h4>
+                            <p class="text-zinc-500 text-sm">Entregamos direção, posicionamento e resultado.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-8">
+                        <a href="https://wa.me/5524993958960?text=Olá! Gostaria de agendar uma consultoria estratégica com a Imparis."
+                            class="w-full sm:w-auto px-10 py-5 bg-brand-500 hover:bg-brand-600 text-white font-black rounded-2xl transition-all shadow-xl shadow-brand-500/20 hover:scale-105 text-center">
+                            Agendar conversa
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-500">
+                                <i class="ph-fill ph-phone-call text-xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-zinc-500 block uppercase font-bold tracking-widest">Fale
+                                    agora</span>
+                                <span class="text-white font-black tracking-tight">+55 24 99395-8960</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-20 bg-black relative overflow-hidden transition-colors">
+        <div class="absolute w-[700px] h-[700px] bg-brand-500 top-[20%] -right-[20%] opacity-20 blur-[150px] rounded-full pointer-events-none z-0"></div>
+        <div class="glow-bg bottom-0 left-[-15%] opacity-30"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-24">
+                <span class="text-sm font-black uppercase tracking-[0.3em] text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500 mb-4 block">Serviços</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">Soluções completas para <br> <span
+                        class="text-brand-500">negócios que querem crescer.</span></h2>
+                <p class="text-zinc-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+                    Desde a criação à escala, oferecemos um ecossistema completo para impulsionar empresas quer seja no digital ou presencial.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-layout text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">Sites</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Não criamos sites. Construímos máquinas de
+                        conversão personalizadas.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Gostaria de um site estratégico."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-device-mobile text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">Apps</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Coloque o seu negócio na palma da mão com apps
+                        modernos.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Gostaria de desenvolver um aplicativo."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-users-three text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">CRM</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Gestão inteligente para não perder nenhum lead
+                        pelo caminho.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Gostaria de saber mais sobre automação CRM."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-pen-nib text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">Design</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Identidade visual de alto nível que gera
+                        autoridade imediata.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Gostaria de elevar o design da minha marca."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-megaphone text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">Social Media</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Não é sobre publicar. É sobre posicionar e
+                        vender estrategicamente.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Preciso de gestão de redes sociais estratégica."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-lightning text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">Tráfego Pago</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Anúncios estratégicos focados em ROI e escala
+                        contínua de negócios.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Gostaria de investir em tráfego pago."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-rocket-launch text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">Lançamentos</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Transforme conhecimento em um ecossistema
+                        digital lucrativo e escalável.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Quero planejar meu próximo lançamento."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="step-card group p-10 flex flex-col items-start hover:border-brand-500 transition-all border-zinc-800 bg-zinc-900/30">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl shadow-brand-500/10 group-hover:bg-brand-500 group-hover:text-white group-hover:shadow-brand-500/30 transition-all duration-500">
+                        <i class="ph-bold ph-ticket text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-3 uppercase tracking-tighter">Eventos</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Eventos que geram autoridade, networking real
+                        e grandes negócios.</p>
+                    <a href="https://wa.me/5524993958960?text=Olá! Gostaria de organizar um evento corporativo."
+                        class="text-xs font-black uppercase tracking-widest text-brand-500 group-hover:text-white flex items-center gap-2 transition-colors">
+                        Saber mais <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais" class="py-24 relative overflow-hidden bg-black">
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-500/5 blur-[150px] rounded-full pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-24 text-center section-header">
+                <span
+                    class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Diferenciais</span>
+                <h2
+                    class="text-4xl md:text-6xl font-black text-white tracking-tighter leading-tight max-w-4xl mx-auto font-jakarta">
+                    Nossa engenharia <br> para <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-brand-400 to-accent-500 italic">o
+                        seu crescimento.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bento-grid mt-12">
+
+                <div
+                    class="bento-card md:col-span-2 md:row-span-2 group relative bg-zinc-900 border border-white/5 rounded-[3rem] overflow-hidden p-8 lg:p-12 flex flex-col justify-between shadow-2xl transition-all duration-500 hover:border-brand-500/40 min-h-[450px]">
+                    <div class="absolute inset-0 bg-brand-500/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="spotlight absolute inset-0"></div>
+
+                    <div class="flex justify-between items-start relative z-10">
+                        <span
+                            class="text-white/10 font-black text-5xl md:text-7xl tracking-tighter uppercase whitespace-nowrap">Strategy
+                            <br> First.</span>
+                        <div
+                            class="w-16 h-16 md:w-20 md:h-20 bg-zinc-950 rounded-3xl border border-brand-500/20 flex items-center justify-center text-brand-500 shadow-glow">
+                            <i class="ph-bold ph-strategy text-3xl md:text-4xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="max-w-md relative z-10">
+                        <h4 class="text-2xl md:text-3xl font-black text-white mb-6 uppercase tracking-tighter">
+                            Pensamento <br> Estratégico.</h4>
+                        <p class="text-zinc-500 text-base md:text-lg font-medium leading-relaxed">Não somos executores
+                            de tarefas, somos arquitetos de negócios. Mergulhamos na sua essência para construir
+                            crescimento real e sustentável.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bento-card group relative bg-zinc-900 border border-white/5 rounded-[3rem] overflow-hidden p-8 shadow-2xl transition-all duration-500 hover:border-brand-500/40 min-h-[220px]">
+                    <div class="spotlight absolute inset-0"></div>
+                    <div class="flex flex-col h-full justify-between relative z-10">
+                        <div
+                            class="w-12 h-12 bg-zinc-950 rounded-xl border border-brand-500/20 flex items-center justify-center text-brand-500 mb-6">
+                            <i class="ph-bold ph-users-four text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-2 uppercase">Equipa <br> Multidisciplinar</h4>
+                            <p class="text-zinc-500 text-xs font-medium italic">Especialistas em cada ponta.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bento-card group relative bg-zinc-900 border border-white/5 rounded-[3rem] overflow-hidden p-8 shadow-2xl transition-all duration-500 hover:border-brand-500/40 min-h-[220px]">
+                    <div class="spotlight absolute inset-0"></div>
+                    <div class="flex flex-col h-full justify-between relative z-10">
+                        <div
+                            class="w-12 h-12 bg-zinc-950 rounded-xl border border-brand-500/20 flex items-center justify-center text-brand-500 mb-6">
+                            <i class="ph-bold ph-sketch-logo text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-2 uppercase">Híbrido <br> de Elite</h4>
+                            <p class="text-zinc-500 text-xs font-medium">Digital + Presencial integrado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bento-card md:col-span-3 group relative bg-zinc-900 border border-white/5 rounded-[3rem] overflow-hidden p-8 md:p-10 shadow-2xl transition-all duration-500 hover:border-brand-500/40">
+                    <div class="spotlight absolute inset-0"></div>
+                    <div
+                        class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative z-10">
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="w-16 h-16 bg-zinc-950 rounded-2xl border border-brand-500/20 flex items-center justify-center text-brand-500">
+                                <i class="ph-bold ph-globe-hemisphere-west text-3xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl md:text-2xl font-black text-white uppercase tracking-tighter">Visão
+                                    Internacional</h4>
+                                <p class="text-zinc-500 font-medium">Sediada em Portugal, conectada ao mundo.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                            <span
+                                class="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-full text-[10px] text-zinc-400 font-black tracking-widest uppercase">Lisboa</span>
+                            <span
+                                class="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-full text-[10px] text-zinc-400 font-black tracking-widest uppercase">Lugano</span>
+                            <span
+                                class="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-full text-[10px] text-zinc-400 font-black tracking-widest uppercase">Rio</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="experiencia" class="py-24 relative bg-black border-t border-zinc-900">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/5 blur-[200px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 section-header">
+                <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">Ecossistema Imparis</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter leading-tight font-jakarta">
+                    Experiências que <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500 italic">expandem fronteiras.</span>
+                </h2>
+                <p class="mt-6 text-zinc-500 text-lg max-w-2xl mx-auto font-medium">Plataformas de networking de alto nível, mentorias exclusivas e imersões híbridas para quem busca o próximo nível.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto lg:h-[600px]">
+                
+                <!-- Card Maior (Esquerda) -->
+                <div class="lg:col-span-2 group relative bg-zinc-950 overflow-hidden rounded-[2.5rem] border border-white/5 transition-all duration-500 hover:border-brand-500/30 flex flex-col justify-end p-10 md:p-14 min-h-[400px]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30 mix-blend-luminosity group-hover:scale-105 group-hover:opacity-40 transition-all duration-1000 z-0"></div>
+                    
+                    <div class="relative z-20">
+                        <div class="w-16 h-16 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-brand-500 mb-8 shadow-xl">
+                            <i class="ph-bold ph-chalkboard-teacher text-3xl"></i>
+                        </div>
+                        <h4 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Mentorias <br> Globais</h4>
+                        <p class="text-zinc-400 text-base md:text-lg font-medium max-w-md">Aconselhamento estratégico direto de Lisboa para founders e C-levels que querem quebrar a barreira do faturamento.</p>
+                    </div>
+                </div>
+
+                <!-- Coluna da Direita (2 Cards Menores) -->
+                <div class="flex flex-col gap-6">
+                    
+                    <!-- Card Superior -->
+                    <div class="flex-1 group relative bg-zinc-950 overflow-hidden rounded-[2.5rem] border border-white/5 transition-all duration-500 hover:border-brand-500/30 flex flex-col justify-center p-10 min-h-[250px]">
+                        <div class="absolute right-0 bottom-0 w-48 h-48 bg-brand-500/10 blur-[50px] group-hover:bg-brand-500/20 transition-all z-0"></div>
+                        <div class="relative z-20 flex items-center gap-6">
+                            <div class="w-14 h-14 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center text-brand-500 shrink-0">
+                                <i class="ph-bold ph-calendar-star text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black text-white uppercase tracking-tighter mb-1">Eventos <br> Estratégicos</h4>
+                                <p class="text-zinc-500 text-xs font-medium">Imersões e networking imbatível.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Inferior -->
+                    <div class="flex-1 group relative bg-zinc-950 overflow-hidden rounded-[2.5rem] border border-white/5 transition-all duration-500 hover:border-brand-500/30 flex flex-col justify-center p-10 min-h-[250px]">
+                        <div class="absolute right-0 bottom-0 w-48 h-48 bg-brand-500/10 blur-[50px] group-hover:bg-brand-500/20 transition-all z-0"></div>
+                        <div class="relative z-20 flex items-center gap-6">
+                            <div class="w-14 h-14 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center text-brand-500 shrink-0">
+                                <i class="ph-bold ph-buildings text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black text-white uppercase tracking-tighter mb-1">Conexões <br> Globais</h4>
+                                <p class="text-zinc-500 text-xs font-medium">Pontes de negócios PT / BR / CH.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="porque-escolher" class="py-24 relative bg-black border-t border-zinc-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="w-full lg:w-5/12">
+                    <span class="text-sm font-black uppercase tracking-[0.3em] text-brand-500 mb-4 block">Diferenciais</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-6">Por que escolher a <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">Imparis?</span></h2>
+                    <p class="text-zinc-400 text-lg font-medium leading-relaxed mb-8">Nós não vendemos serviços pacotados. Construímos máquinas de vendas, sistemas de automação e entregamos um posicionamento absoluto para que você domine o mercado.</p>
+                </div>
+                
+                <div class="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-3xl hover:border-brand-500/30 transition-colors group">
+                        <i class="ph-bold ph-shield-check text-4xl text-brand-500 mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight uppercase">Sem Templates</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Cada projeto é desenhado do absoluto zero, focado inteiramente na conversão da sua empresa.</p>
+                    </div>
+                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-3xl hover:border-brand-500/30 transition-colors group">
+                        <i class="ph-bold ph-trend-up text-4xl text-brand-500 mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight uppercase">Foco em ROI</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Não buscamos apenas likes. Todo nosso ecossistema de marketing é projetado para retorno financeiro.</p>
+                    </div>
+                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-3xl hover:border-brand-500/30 transition-colors group">
+                        <i class="ph-bold ph-layers-intersection text-4xl text-brand-500 mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight uppercase">Ecossistema 360º</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Do design inicial ao disparo de anúncios, desenvolvimento e CRM, nós cobrimos todo o funil.</p>
+                    </div>
+                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-3xl hover:border-brand-500/30 transition-colors group">
+                        <i class="ph-bold ph-globe-stand text-4xl text-brand-500 mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight uppercase">Visão Global</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Experiência internacional operando em escala através de hubs fixos em Portugal, Suíça e Brasil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO TRABALHAMOS / PROCESSO (MOVIDO MANTENDO O DESIGN ORIGINAL) -->
+    <section id="processo" class="py-24 relative bg-black border-t border-zinc-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-24">
+                <span class="text-sm font-black uppercase tracking-[0.3em] text-brand-500 mb-4 block">Processo</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">Como <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">Trabalhamos.</span></h2>
+                <p class="text-zinc-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">Execução rápida, previsível e escalável em 5 passos cirúrgicos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+                <!-- Linha de conexão invisível atrás (desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-zinc-800 -translate-y-1/2 z-0"></div>
+
+                <div class="process-step group relative z-10 bg-zinc-900/80 border border-zinc-800 rounded-3xl p-8 text-center hover:border-brand-500/50 transition-all duration-300 backdrop-blur-sm hover:-translate-y-2">
+                    <div class="w-12 h-12 mx-auto bg-black border border-brand-500/30 rounded-full flex items-center justify-center text-brand-500 font-black text-xl mb-4 shadow-[0_0_15px_rgba(15,76,146,0.2)] group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300"><i class="ph-bold ph-scan"></i></div>
+                    <h4 class="text-white font-bold text-lg uppercase tracking-tight mb-2">Diagnóstico</h4>
+                    <p class="text-zinc-500 text-xs font-medium">Análise profunda do cenário atual.</p>
+                </div>
+
+                <div class="process-step group relative z-10 bg-zinc-900/80 border border-zinc-800 rounded-3xl p-8 text-center hover:border-brand-500/50 transition-all duration-300 backdrop-blur-sm hover:-translate-y-2">
+                    <div class="w-12 h-12 mx-auto bg-black border border-brand-500/30 rounded-full flex items-center justify-center text-brand-500 font-black text-xl mb-4 shadow-[0_0_15px_rgba(15,76,146,0.2)] group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300"><i class="ph-bold ph-strategy"></i></div>
+                    <h4 class="text-white font-bold text-lg uppercase tracking-tight mb-2">Estratégia</h4>
+                    <p class="text-zinc-500 text-xs font-medium">Plano de ação e posicionamento.</p>
+                </div>
+
+                <div class="process-step group relative z-10 bg-zinc-900/80 border border-zinc-800 rounded-3xl p-8 text-center hover:border-brand-500/50 transition-all duration-300 backdrop-blur-sm hover:-translate-y-2">
+                    <div class="w-12 h-12 mx-auto bg-black border border-brand-500/30 rounded-full flex items-center justify-center text-brand-500 font-black text-xl mb-4 shadow-[0_0_15px_rgba(15,76,146,0.2)] group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300"><i class="ph-bold ph-code-block"></i></div>
+                    <h4 class="text-white font-bold text-lg uppercase tracking-tight mb-2">Desenvolvimento</h4>
+                    <p class="text-zinc-500 text-xs font-medium">Construção das soluções de elite.</p>
+                </div>
+
+                <div class="process-step group relative z-10 bg-zinc-900/80 border border-zinc-800 rounded-3xl p-8 text-center hover:border-brand-500/50 transition-all duration-300 backdrop-blur-sm hover:-translate-y-2">
+                    <div class="w-12 h-12 mx-auto bg-black border border-brand-500/30 rounded-full flex items-center justify-center text-brand-500 font-black text-xl mb-4 shadow-[0_0_15px_rgba(15,76,146,0.2)] group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300"><i class="ph-bold ph-rocket-launch"></i></div>
+                    <h4 class="text-white font-bold text-lg uppercase tracking-tight mb-2">Implementação</h4>
+                    <p class="text-zinc-500 text-xs font-medium">Lançamento e execução no mercado.</p>
+                </div>
+
+                <div class="process-step group relative z-10 bg-brand-500/10 border border-brand-500/40 rounded-3xl p-8 text-center hover:bg-brand-500/20 transition-all duration-300 backdrop-blur-sm hover:-translate-y-4 shadow-[0_20px_40px_-15px_rgba(15,76,146,0.4)]">
+                    <div class="w-12 h-12 mx-auto bg-brand-500 rounded-full flex items-center justify-center text-white font-black text-xl mb-4 shadow-[0_0_20px_rgba(15,76,146,0.6)]"><i class="ph-bold ph-chart-line-up"></i></div>
+                    <h4 class="text-brand-400 font-bold text-lg uppercase tracking-tight mb-2">Otimização</h4>
+                    <p class="text-brand-500/80 text-xs font-medium">Escala contínua e análise de ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contato" class="py-32 relative overflow-hidden bg-black text-center flex items-center justify-center">
+        <!-- Fundo Cinemático e Iluminação -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-brand-500/10 blur-[200px] rounded-full pointer-events-none z-0"></div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-20 w-full">
+            <div class="bg-zinc-900/40 backdrop-blur-3xl rounded-[3rem] p-10 md:p-20 border border-white/10 relative overflow-hidden shadow-2xl group hover:border-brand-500/30 transition-all duration-700">
+                
+                <!-- Glares Internos do Card -->
+                <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-500/20 blur-[150px] rounded-full pointer-events-none z-0"></div>
+                <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-brand-400/10 blur-[150px] rounded-full pointer-events-none z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                
+                <div class="relative z-20 flex flex-col items-center">
+                    <!-- Icone de Destaque -->
+                    <div class="w-20 h-20 rounded-full bg-black border border-white/5 flex items-center justify-center text-brand-500 mb-8 shadow-[0_0_40px_rgba(15,76,146,0.4)] group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <i class="ph-bold ph-power text-4xl"></i>
+                    </div>
+                    
+                    <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block font-jakarta">O Próximo Passo</span>
+                    
+                    <!-- Headline Copy do Roteiro -->
+                    <h2 class="text-4xl md:text-6xl md:leading-[1.1] font-black text-white mb-8 tracking-tighter font-jakarta max-w-3xl">
+                        O próximo nível do seu negócio <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">começa com uma decisão.</span>
+                    </h2>
+                    
+                    <p class="text-zinc-400 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed">
+                        Esqueça a execução de tarefas isoladas. Sente-se conosco e descubra como uma engenharia estratégica de elite vai escalar a sua operação.
+                    </p>
+
+                    <!-- Botões -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
+                        <a href="https://wa.me/5524993958960?text=Olá! Quero agendar uma conversa sobre o meu negócio."
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-500 hover:bg-brand-400 text-white font-black text-lg py-5 px-14 rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(15,76,146,0.4)] hover:shadow-[0_0_50px_rgba(15,76,146,0.6)] hover:-translate-y-1 active:scale-95">
+                            Agendar conversa <i class="ph-bold ph-arrow-right text-xl"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Proof / Urgency -->
+                    <div class="flex items-center gap-3 mt-10">
+                        <div class="flex -space-x-3">
+                            <div class="w-8 h-8 rounded-full border-2 border-zinc-900 bg-zinc-800 flex items-center justify-center text-[10px]"><i class="ph-fill ph-user text-zinc-500"></i></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-zinc-900 bg-zinc-800 flex items-center justify-center text-[10px]"><i class="ph-fill ph-user text-zinc-500"></i></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-zinc-900 bg-zinc-800 flex items-center justify-center text-[10px]"><i class="ph-fill ph-user text-zinc-500"></i></div>
+                        </div>
+                        <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">+150 Empresários impulsionados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-24 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 font-jakarta">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-1 lg:col-span-1">
+                    <img src="images/logo-imparis-v4.png" alt="Imparis Solutions" class="h-8 w-auto mb-10">
+                    <p class="text-zinc-500 text-sm leading-relaxed max-w-xs">
+                        Agência de negócios focada em otimizar processos e escalar empresas através de inteligência
+                        estratégica e tecnologia de elite.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-10">Explorar</h5>
+                    <ul class="space-y-4 text-sm font-medium text-zinc-500">
+                        <li><a href="#sobre" class="hover:text-brand-400 transition-colors">Agência</a></li>
+                        <li><a href="#servicos" class="hover:text-brand-400 transition-colors">Serviços</a></li>
+                        <li><a href="#diferenciais" class="hover:text-brand-400 transition-colors">Diferenciais</a></li>
+                        <li><a href="#experiencia" class="hover:text-brand-400 transition-colors">Ecossistema</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-10">Hubs Globais</h5>
+                    <ul class="space-y-6 text-sm font-medium text-zinc-500 leading-relaxed">
+                        <li class="flex flex-col gap-1">
+                            <span class="text-zinc-400 font-bold text-[10px] uppercase tracking-widest">Portugal</span>
+                            Lisboa
+                        </li>
+                        <li class="flex flex-col gap-1">
+                            <span class="text-zinc-400 font-bold text-[10px] uppercase tracking-widest">Suíça</span>
+                            Lugano
+                        </li>
+                        <li class="flex flex-col gap-1">
+                            <span class="text-zinc-400 font-bold text-[10px] uppercase tracking-widest">Brasil</span>
+                            Rio de Janeiro
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-10">Connect</h5>
+                    <div class="flex items-center gap-4">
+                        <a href="https://instagram.com/imparis.solutions"
+                            class="w-12 h-12 rounded-2xl bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-brand-500 hover:text-white transition-all shadow-xl">
+                            <i class="ph-bold ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-2xl bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-brand-500 hover:text-white transition-all shadow-xl">
+                            <i class="ph-bold ph-linkedin-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="pt-12 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div class="flex flex-col gap-1">
+                    <span class="text-zinc-600 text-[10px] font-bold uppercase tracking-widest">© 2026 IMPARIS
+                        SOLUTIONS, LDA</span>
+                    <span class="text-zinc-700 text-[9px] font-medium uppercase tracking-[0.2em]">NIF 519147995 • Rua
+                        São Tiago 376, 2415-543 | Marrazes, Leiria</span>
+                    <span
+                        class="text-zinc-700 text-[9px] font-medium uppercase tracking-[0.2em] mt-1">contacto@imparis.com</span>
+                </div>
+                <div class="flex items-center gap-8 justify-center md:justify-end">
+                    <a href="#"
+                        class="text-zinc-600 hover:text-zinc-400 text-[10px] font-bold uppercase tracking-widest transition-colors">Termos</a>
+                    <a href="#"
+                        class="text-zinc-600 hover:text-zinc-400 text-[10px] font-bold uppercase tracking-widest transition-colors">Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
