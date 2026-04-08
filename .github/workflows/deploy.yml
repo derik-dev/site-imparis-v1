@@ -1,0 +1,21 @@
+name: Deploy Automático Hostinger
+
+on:
+  push:
+    branches:
+      - main # Se a sua branch principal for master, mude aqui.
+
+jobs:
+  web-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Baixar o código mais recente
+      uses: actions/checkout@v4
+
+    - name: Sincronizar arquivos para a Hostinger
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /public_html/template
