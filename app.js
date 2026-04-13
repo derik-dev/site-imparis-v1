@@ -1,7 +1,3 @@
-/**
- * Imparis Solutions - Elite Logic System v4.0
- * Orquestrando interatividades dinâmicas e 3D.
- */
 
 document.addEventListener('DOMContentLoaded', () => {
     // 0. Registrar Plugins GSAP
@@ -27,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. CARROSSEL 3D CURVO (Elite Carousel)
     const items = document.querySelectorAll('.carousel-item');
     const totalItems = items.length;
-    const radius = 280; // Raio da órbita ideal
+    const radius = 325; // Raio da órbita exato (solicitação user)
     let rot = 0;
 
     // Função para atualizar posições 3D dos boxes
-    function updateCarousel() {
+    function updateCarousel(instant = false) {
         items.forEach((item, index) => {
             const angle = ((index / totalItems) * 360 + rot) % 360;
             const radians = (angle * Math.PI) / 180;
@@ -39,26 +35,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = Math.sin(radians) * radius;
             const z = Math.cos(radians) * radius;
 
-            // Tilting dinâmico e Escala baseada em profundidade
             const tilt = (x / radius) * 15;
             const scale = (z + radius) / (radius * 2) * 0.35 + 0.65;
-            const opacity = (z + radius) / (radius * 2) * 0.7 + 0.3;
 
-            gsap.to(item, {
-                duration: 0.8,
+            const animationProps = {
                 x: x,
                 z: z,
                 scale: scale,
                 rotationY: -tilt,
-                opacity: opacity,
-                zIndex: Math.round(z + radius),
-                ease: "power2.out"
-            });
+                opacity: 1,
+                zIndex: Math.round(z + radius)
+            };
 
-            // Sincroniza o ponto da órbita visual
+            if (instant) {
+                gsap.set(item, animationProps);
+            } else {
+                gsap.to(item, {
+                    ...animationProps,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            }
+
             if (index === 0) {
                 const orbitX = (Math.sin(radians) * 50) + 50;
-                gsap.to("#orbit-dot", { left: `${orbitX}%`, duration: 0.8 });
+                gsap.to("#orbit-dot", { left: `${orbitX}%`, duration: instant ? 0 : 0.8 });
             }
         });
     }
@@ -82,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let isHoveringCarousel = false;
     const carouselTimer = setInterval(() => {
         if (!isHoveringCarousel) {
-            rot -= 0.25;
+            rot -= 0.35; // Rotação ligeiramente mais rápida para dinamismo
             updateCarousel();
         }
-    }, 30);
+    }, 25); // Intervalo menor para maior fluidez
 
     const scene = document.querySelector('.carousel-item')?.parentElement;
     if (scene) {
@@ -93,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scene.addEventListener('mouseleave', () => isHoveringCarousel = false);
     }
 
-    updateCarousel(); // Inicialização
+    updateCarousel(true); // Inicialização Instantânea
 
 
 
@@ -110,4 +111,75 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 6. Section Progress Indicator
+    const serviceSections = document.querySelectorAll('main > div > div[class*="flex"]');
+    const indicatorContainer = document.querySelector('.section-indicator');
+
+    if (indicatorContainer && serviceSections.length) {
+        serviceSections.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'indicator-dot';
+            if (i === 0) dot.classList.add('active');
+            indicatorContainer.appendChild(dot);
+        });
+
+        window.addEventListener('scroll', () => {
+            let current = 0;
+            serviceSections.forEach((section, i) => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 400) {
+                    current = i;
+                }
+            });
+
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
+            });
+        });
+    }
+
+    // 7. Cursor Spotlight Effect
+    const spotlight = document.querySelector('.spotlight');
+    if (spotlight) {
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(spotlight, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+            spotlight.style.opacity = "1";
+        });
+    }
+
+    // 8. Staggered Card Entrance (Optimizado para Performance)
+    const cards = document.querySelectorAll('.glass-card:not(.static-card)');
+    cards.forEach((card) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: "top 95%",
+                toggleActions: "play none none reverse"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+    });
+
+    // 9. Scroll Progress Bar
+    const progressBar = document.querySelector('.scroll-progress');
+    if (progressBar) {
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement,
+                b = document.body,
+                st = 'scrollTop',
+                sh = 'scrollHeight';
+            const percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+            progressBar.style.transform = `scaleX(${percent / 100})`;
+        });
+    }
 });

@@ -33,8 +33,24 @@ html.lenis, html.lenis body {
 }
 
 .dark .glass-nav {
-    background: rgba(10, 16, 29, 0.72);
-    border-bottom: 1px solid rgba(126, 169, 223, 0.08);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    height: 64px;
+}
+
+/* 0. Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0f4c92, transparent);
+    background-size: 200% 100%;
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 1000;
 }
 
 /* Ambient Glows Dinâmicos */
@@ -131,7 +147,135 @@ html.lenis, html.lenis body {
 
 /* 4. Experience Card: Noise Texture */
 .box-experience {
-    background: #000;
+    background-color: #060a12;
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(255,255,255,0.01) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+/* Custom Utilities for Services Overhaul */
+.sticky-column {
+    position: sticky;
+    top: 150px;
+}
+
+@media (max-width: 1024px) {
+    .sticky-column {
+        position: relative;
+        top: 0;
+    }
+}
+
+.glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+    transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-5px);
+}
+
+.spotlight {
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(15, 76, 146, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 1.5s ease;
+    filter: blur(80px);
+}
+
+.body-scrolling .spotlight {
+    opacity: 1;
+}
+
+.section-indicator {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+.indicator-dot {
+    width: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.indicator-dot.active {
+    height: 40px;
+    background: rgba(15, 76, 146, 0.9);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(15, 76, 146, 0.3);
+}
+
+::selection {
+    background: rgba(15, 76, 146, 0.9);
+    color: #fff;
+}
+
+@keyframes grid-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 32px 32px; }
+}
+
+.animated-grid {
+    animation: grid-move 20s linear infinite;
+}
+
+.text-glow {
+    text-shadow: 0 0 30px rgba(15, 76, 146, 0.3);
+}
+
+.border-beam {
+    position: relative;
+}
+
+.border-beam::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg, transparent, rgba(15, 76, 146, 0.4), transparent);
+    background-size: 200% 100%;
+    animation: beam 4s linear infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.group:hover .border-beam::after {
+    opacity: 1;
+}
+
+@keyframes beam {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .box-experience::before {
@@ -168,4 +312,15 @@ html.lenis, html.lenis body {
 
 .shadow-glow {
     box-shadow: 0 0 20px -5px rgba(15, 76, 146, 0.4);
+}
+
+.cta-btn {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 45px rgba(124, 58, 237, 0.6);
 }
