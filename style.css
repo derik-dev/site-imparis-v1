@@ -26,18 +26,25 @@ html.lenis, html.lenis body {
 
 /* Glassmorphism Dinâmico */
 .glass-nav {
-    background: rgba(255, 255, 255, 0.7);
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* Acima do noise-overlay (99) e progress bar (1000) */
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    height: 70px;
 }
 
 .dark .glass-nav {
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(15px);
+    background: rgba(6, 10, 18, 0.82);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    height: 64px;
 }
+
+/* Estado quando o usuário rola a página */
+/* Header agora é estático via .glass-nav principal */
 
 /* 0. Scroll Progress Bar */
 .scroll-progress {

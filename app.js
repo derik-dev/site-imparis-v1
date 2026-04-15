@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     // 0. Registrar Plugins GSAP
     gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +12,30 @@ document.addEventListener('DOMContentLoaded', () => {
         smoothTouch: false,
     });
 
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', (e) => {
+        ScrollTrigger.update();
+        
+        // Header Fixo (Estático)
+        const nav = document.querySelector('nav');
+        // Removido toggle de nav-scrolled para evitar movimentação no scroll
+
+        // 6. Section Progress Indicator (Integrado no scroll do Lenis)
+        const serviceSections = document.querySelectorAll('main > div > div[class*="flex"]');
+        if (serviceSections.length) {
+            let current = 0;
+            serviceSections.forEach((section, i) => {
+                const sectionTop = section.offsetTop;
+                if (e.scroll >= sectionTop - 400) {
+                    current = i;
+                }
+            });
+
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
+            });
+        }
+    });
 
     gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
@@ -23,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. CARROSSEL 3D CURVO (Elite Carousel)
     const items = document.querySelectorAll('.carousel-item');
     const totalItems = items.length;
-    const radius = 325; // Raio da órbita exato (solicitação user)
+    const radius = 240; // Raio da órbita reduzido para aproximar os 3 cards
     let rot = 0;
 
     // Função para atualizar posições 3D dos boxes
@@ -112,34 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. Section Progress Indicator
-    const serviceSections = document.querySelectorAll('main > div > div[class*="flex"]');
-    const indicatorContainer = document.querySelector('.section-indicator');
-
-    if (indicatorContainer && serviceSections.length) {
-        serviceSections.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.className = 'indicator-dot';
-            if (i === 0) dot.classList.add('active');
-            indicatorContainer.appendChild(dot);
-        });
-
-        window.addEventListener('scroll', () => {
-            let current = 0;
-            serviceSections.forEach((section, i) => {
-                const sectionTop = section.offsetTop;
-                if (window.pageYOffset >= sectionTop - 400) {
-                    current = i;
-                }
-            });
-
-            const dots = document.querySelectorAll('.indicator-dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === current);
-            });
-        });
-    }
-
     // 7. Cursor Spotlight Effect
     const spotlight = document.querySelector('.spotlight');
     if (spotlight) {
@@ -154,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Staggered Card Entrance (Optimizado para Performance)
+    // 8. Staggered Card Entrance
     const cards = document.querySelectorAll('.glass-card:not(.static-card)');
     cards.forEach((card) => {
         gsap.from(card, {
@@ -170,15 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 9. Scroll Progress Bar
+    // 9. Scroll Progress Bar (Integrado no scroll do Lenis)
     const progressBar = document.querySelector('.scroll-progress');
     if (progressBar) {
-        window.addEventListener('scroll', () => {
-            const h = document.documentElement,
-                b = document.body,
-                st = 'scrollTop',
-                sh = 'scrollHeight';
-            const percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+        lenis.on('scroll', (e) => {
+            const percent = (e.scroll) / (document.documentElement.scrollHeight - window.innerHeight) * 100;
             progressBar.style.transform = `scaleX(${percent / 100})`;
         });
     }
